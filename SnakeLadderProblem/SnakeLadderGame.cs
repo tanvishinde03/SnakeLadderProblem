@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SnakeLadderProblem
 {
@@ -10,63 +6,64 @@ namespace SnakeLadderProblem
     {
         public void PoisitionCheck()
         {
-            int Player_position = 0;
-            int No_Play = 0;
-            while (Player_position <= 100)        //UC5
+            int player_position = 0;
+            int no_Play = 0;
+            int die_Count = 0;
+            while (player_position <= 100)       //UC6
 
             {
+                
                 Random random = new Random();
                 int dice_number = random.Next(1, 7);
                 Console.WriteLine("Number on dice : " + dice_number);
+                die_Count++;
 
+                
                 Random random1 = new Random();
                 int option = random1.Next(1, 4);
                 Console.WriteLine("Number of option " + option);
 
                 if (option == 1)       
                 {
-                    Player_position = Player_position + dice_number;
+                    player_position = player_position + dice_number;
 
-                    if (Player_position == 100)
+                    if (player_position == 100)
                     {
-                        Console.WriteLine("Player position is {0} and \" Player has won \" ", Player_position);
+                        Console.WriteLine("Player position is {0} and \" Player has won \" ", player_position);
                         break;
                     }
-                    else if (Player_position > 100)
+                    else if (player_position > 100)
                     {
-                        Player_position = Player_position - dice_number;
+                        player_position = player_position - dice_number;
                     }
 
-                    Console.WriteLine("Player position moves ahead by {0} : {1}", dice_number, Player_position);
-                    Console.ReadLine();
+                    Console.WriteLine("Player position moves ahead by {0} : {1}", dice_number, player_position);
                 }
 
-                else if (option == 2)       
+                else if (option == 2)      
                 {
-                    Player_position = Player_position - dice_number;
+                    player_position = player_position - dice_number;
 
-                    if (Player_position < 0)
+                    if (player_position < 0)
                     {
-                        Player_position = 0;
+                        player_position = 0;
                         Console.WriteLine("Player starts again from 0 position");
                     }
 
-                    Console.WriteLine("Player position moves behind by {0} : {1}", dice_number, Player_position);
-                    Console.ReadLine();
+                    Console.WriteLine("Player position moves behind by {0} : {1}", dice_number, player_position);
                 }
 
                 else                  
                 {
-                    Player_position = Player_position + No_Play;
-                    Console.WriteLine("Player position remain same : " + Player_position);
-                    Console.ReadLine();
+                    player_position = player_position + no_Play;
+                    Console.WriteLine("Player position remain same : " + player_position);
                 }
             }
-            
-
-
-
+            Console.WriteLine("Total dies played in the game : " + die_Count);
+            Console.ReadLine();
+        }
+        
         }
 
     }
-}
+
