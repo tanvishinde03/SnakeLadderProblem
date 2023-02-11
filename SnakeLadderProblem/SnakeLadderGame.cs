@@ -14,6 +14,13 @@ namespace SnakeLadderProblem
             int start_position = 0;
             Console.WriteLine("Start Position of Player no {0} is : {1} ", player_no, start_position);
             Console.ReadLine();
+
+            Random random = new Random();
+            int DiceRoll = random.Next(1, 7);
+            Console.WriteLine("Dice Number : " + DiceRoll);
+            Console.ReadLine();
+
+
         }
 
 
